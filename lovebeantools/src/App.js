@@ -12,7 +12,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-            <Button type={"primary"}>测试按钮</Button>
+            <Button type={"primary"} shape={"default"} size={"large"} style={{width: 200, height: 50}}>测试按钮</Button>
         </p>
       </div>
     );
