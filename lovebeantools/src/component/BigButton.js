@@ -6,7 +6,7 @@ import {
 
 BigButton.propTypes = {
 
-}
+};
 
 export default class BigButton extends React.Component {
     render() {
