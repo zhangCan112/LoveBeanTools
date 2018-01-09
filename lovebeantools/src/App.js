@@ -1,10 +1,9 @@
+//@flow
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button }from 'antd';
 import icon from './images/eson.jpg';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { SubMenu } = Menu;
+const { SubMenu, ClickParam } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
 class App extends Component {
@@ -13,7 +12,8 @@ class App extends Component {
         super();
         this.state = {
             w: document.documentElement.clientWidth,
-            h: document.documentElement.clientHeight
+            h: document.documentElement.clientHeight,
+            content: "不知道"
         };
     }
 
@@ -23,8 +23,9 @@ class App extends Component {
 
 
   render() {
-        const bodyWidth = this.state.w;
-        const bodyHeight = this.state.h - 300;
+        let bodyWidth = this.state.w;
+        let bodyHeight = this.state.h - 300;
+        bodyHeight = bodyHeight>=800 ? bodyHeight : 800;
     return (
         <Layout className="App">
             <Header className="header">
@@ -38,6 +39,7 @@ class App extends Component {
                         defaultSelectedKeys={['1']}
                         defaultOpenKeys={['sub1']}
                         style={{ height: '100%', borderRight: 0 }}
+                        onClick={this.clickOptionAction}
                     >
                         <SubMenu key="sub1" title={<span><Icon type="user" />日期转换</span>}>
                             <Menu.Item key="1">option1</Menu.Item>
@@ -66,7 +68,7 @@ class App extends Component {
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                        Content
+                        {this.state.content}
                     </Content>
                 </Layout>
             </Layout>
@@ -77,12 +79,24 @@ class App extends Component {
 
     headerTitle = '"工欲善其事，必先利其器。"——孔子《论语·卫灵公》';
 
+    //重新计算框体大小
     resize = () => {
-        this.setState({
+        this.setState({...this.state,
             w: document.documentElement.clientWidth,
             h: document.documentElement.clientHeight,
         });
     };
+
+    //点击了某个功能选项
+    clickOptionAction = (param: ClickParam)=> {
+        this.setState(
+            {
+                ...this.state,
+                content: param.key
+            }
+        );
+    }
+
 }
 
 
