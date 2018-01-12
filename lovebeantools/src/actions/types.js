@@ -20,6 +20,4 @@ export type GroupType = "Date" | "Rate" | "Other"
  */
 export type Action =
       {type: ActionType.selectGroup, group: GroupType}
-    | {}
-    | {}
 

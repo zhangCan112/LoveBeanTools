@@ -1,9 +1,5 @@
 //@flow
-
-/*
- * action 类型
- */
-
+import {Action, GroupType, ActionType} from './types';
 
 
 /*
@@ -16,3 +12,10 @@
 /*
  * action 创建函数
  */
+//选择了某组工具
+function selectGroup(group: GroupType): Action {
+    return {
+        // type: ActionType.selectGroup,
+        group1: group,
+    }
+}
