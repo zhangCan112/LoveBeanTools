@@ -1,5 +1,5 @@
 //@flow
-import {Action, GroupType, ActionType} from './types';
+import {Action, GroupType, ActionType, ToolType} from './types';
 
 
 /*
@@ -15,7 +15,15 @@ import {Action, GroupType, ActionType} from './types';
 //选择了某组工具
 function selectGroup(group: GroupType): Action {
     return {
-        // type: ActionType.selectGroup,
-        group1: group,
+        type: ActionType.selectGroup,
+        group: group,
+    }
+}
+
+//选择了某个工具
+function selectTool(tool: ToolType): Action {
+    return {
+        type: ActionType.selelctTool,
+        tool: tool,
     }
 }
