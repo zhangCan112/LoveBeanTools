@@ -10,14 +10,15 @@ const { Header, Content, Sider, Footer } = Layout;
 class App extends Component {
 
     state: {
-        w: ?number,
-        h: ?number,
-        content: ?string,
-    }
+        w?: ?number,
+        h?: ?number,
+        content?: ?string,
+    };
     constructor() {
         super();
+        let clientWidth = document.documentElement.clientWidth;
         this.state = {
-            w: document.documentElement.clientWidth,
+            w: clientWidth,
             h: document.documentElement.clientHeight,
             content: "不知道"
         };
@@ -88,6 +89,7 @@ class App extends Component {
     //重新计算框体大小
     resize = () => {
         this.setState({...this.state,
+
             w: document.documentElement.clientWidth,
             h: document.documentElement.clientHeight,
         });
