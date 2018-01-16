@@ -3,11 +3,17 @@ import React, { Component } from 'react';
 import './App.css';
 import icon from './images/eson.jpg';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import DateDistanceToolView from './component/DateDistanceToolView';
 const { SubMenu, ClickParam } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
 class App extends Component {
 
+    state: {
+        w: ?number,
+        h: ?number,
+        content: ?string,
+    }
     constructor() {
         super();
         this.state = {
@@ -24,7 +30,7 @@ class App extends Component {
 
   render() {
         let bodyWidth = this.state.w;
-        let bodyHeight = this.state.h - 300;
+        let bodyHeight = (this.state.h ? this.state.h : 300) - 300;
         bodyHeight = bodyHeight>=800 ? bodyHeight : 800;
     return (
         <Layout className="App">
@@ -68,7 +74,7 @@ class App extends Component {
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                        {this.state.content}
+                        <DateDistanceToolView></DateDistanceToolView>
                     </Content>
                 </Layout>
             </Layout>
