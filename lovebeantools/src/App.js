@@ -16,10 +16,16 @@ class App extends Component {
     };
     constructor() {
         super();
-        let clientWidth = document.documentElement.clientWidth;
+        let documentElement = document.documentElement;
+        let clientWidth = 0;
+        let clientHeight = 0;
+        if (documentElement) {
+            clientWidth = documentElement.clientWidth;
+            clientHeight = documentElement.clientHeight;
+        }
         this.state = {
             w: clientWidth,
-            h: document.documentElement.clientHeight,
+            h: clientHeight,
             content: "不知道"
         };
     }
@@ -88,10 +94,16 @@ class App extends Component {
 
     //重新计算框体大小
     resize = () => {
+        let documentElement = document.documentElement;
+        let clientWidth = 0;
+        let clientHeight = 0;
+        if (documentElement) {
+            clientWidth = documentElement.clientWidth;
+            clientHeight = documentElement.clientHeight;
+        }
         this.setState({...this.state,
-
-            w: document.documentElement.clientWidth,
-            h: document.documentElement.clientHeight,
+            w: clientWidth,
+            h: clientHeight,
         });
     };
 
@@ -104,6 +116,8 @@ class App extends Component {
             }
         );
     }
+
+
 
 }
 
