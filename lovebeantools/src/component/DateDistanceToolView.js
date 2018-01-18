@@ -1,6 +1,6 @@
 //@flow
 
-import moment, {Moment} from 'moment';
+import moment from 'moment';
 import React, { Component } from 'react';
 import { DatePicker, Dropdown, Menu } from 'antd';
 const {RangePicker} = DatePicker;
@@ -52,7 +52,7 @@ export default class DateDistanceToolView extends Component {
     };
 
     onSelect = (param: ClickParam): void => {
-        let isContainEndDay = param.key === 'true' ? true : false;
+        let isContainEndDay = param.key === 'true';
         this.setState({
             ...this.state,
             isContainEndDay: isContainEndDay,
