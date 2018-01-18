@@ -1,5 +1,6 @@
 //@flow
-import {Action, GroupType, ActionType, ToolType} from './types';
+import {ActionType} from './types';
+import type {Action, GroupType, ToolType} from './types';
 
 
 /*

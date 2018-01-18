@@ -26,6 +26,6 @@ export const ActionType = {
  * action 类型
  */
 export type Action =
-      {type: ActionType.selectGroup, group: GroupType}
-    | {type: ActionType.selelctTool, tool: ToolType}
+      {type: typeof ActionType.selectGroup, group: GroupType}
+    | {type: typeof ActionType.selelctTool, tool: ToolType}
 
