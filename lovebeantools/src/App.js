@@ -4,6 +4,7 @@ import './App.css';
 import icon from './images/eson.jpg';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import DateDistanceToolView from './component/DateDistanceToolView';
+import DateAfterToolView from './component/DateAfterToolView';
 const { SubMenu, ClickParam } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -56,7 +57,7 @@ class App extends Component {
                     >
                         <SubMenu key="sub1" title={<span><Icon type="user" />日期转换</span>}>
                             <Menu.Item key="1">日期间隔</Menu.Item>
-                            <Menu.Item key="2">某天日期</Menu.Item>
+                            <Menu.Item key="2">推算日期</Menu.Item>
                             <Menu.Item key="3">option3</Menu.Item>
                             <Menu.Item key="4">option4</Menu.Item>
                         </SubMenu>
@@ -81,7 +82,7 @@ class App extends Component {
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                        <DateDistanceToolView></DateDistanceToolView>
+                        <DateAfterToolView/>
                     </Content>
                 </Layout>
             </Layout>
