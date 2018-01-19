@@ -14,7 +14,7 @@ import type {Action, GroupType, ToolType} from './types';
  * action 创建函数
  */
 //选择了某组工具
-function selectGroup(group: GroupType): Action {
+export function selectGroup(group: GroupType): Action {
     return {
         type: ActionType.selectGroup,
         group: group,
@@ -22,7 +22,7 @@ function selectGroup(group: GroupType): Action {
 }
 
 //选择了某个工具
-function selectTool(tool: ToolType): Action {
+export function selectTool(tool: ToolType): Action {
     return {
         type: ActionType.selelctTool,
         tool: tool,

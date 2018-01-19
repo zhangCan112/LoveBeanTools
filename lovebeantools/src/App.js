@@ -1,10 +1,13 @@
 //@flow
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import './App.css';
 import icon from './images/eson.jpg';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { connect } from 'react-redux';
 import DateDistanceToolView from './component/DateDistanceToolView';
 import DateAfterToolView from './component/DateAfterToolView';
+import {selectTool} from "./actions";
+import type {ToolType} from './actions/types';
 const { SubMenu, ClickParam } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -56,22 +59,12 @@ class App extends Component {
                         onClick={this.clickOptionAction}
                     >
                         <SubMenu key="sub1" title={<span><Icon type="user" />日期转换</span>}>
-                            <Menu.Item key="1">日期间隔</Menu.Item>
-                            <Menu.Item key="2">推算日期</Menu.Item>
-                            <Menu.Item key="3">option3</Menu.Item>
-                            <Menu.Item key="4">option4</Menu.Item>
+                            <Menu.Item key="DateDistance">日期间隔</Menu.Item>
+                            <Menu.Item key="CalculateOneDay">推算日期</Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub2" title={<span><Icon type="laptop" />增长率</span>}>
-                            <Menu.Item key="5">同比增长</Menu.Item>
-                            <Menu.Item key="6">环比增长</Menu.Item>
-                            <Menu.Item key="7">option7</Menu.Item>
-                            <Menu.Item key="8">option8</Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-                            <Menu.Item key="9">option9</Menu.Item>
-                            <Menu.Item key="10">option10</Menu.Item>
-                            <Menu.Item key="11">option11</Menu.Item>
-                            <Menu.Item key="12">option12</Menu.Item>
+                            <Menu.Item key="OnYearOnYearBasisRatio">同比增长</Menu.Item>
+                            <Menu.Item key="LinkRelativeRatio">环比增长</Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>
@@ -82,7 +75,7 @@ class App extends Component {
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                        <DateAfterToolView/>
+                        {this.renderSelelctedToolView(this.props.tool.tooltype)}
                     </Content>
                 </Layout>
             </Layout>
@@ -90,6 +83,17 @@ class App extends Component {
         </Layout>
     );
   }
+    //选择个某个工具
+    renderSelelctedToolView = (tool: ToolType) => {
+      switch (tool) {
+          case "DateDistance":
+              return (<DateDistanceToolView/>);
+          case "CalculateOneDay":
+              return (<DateAfterToolView/>);
+          default:
+              return null;
+      }
+    };
 
     headerTitle = '"工欲善其事，必先利其器。"——孔子《论语·卫灵公》';
 
@@ -110,17 +114,8 @@ class App extends Component {
 
     //点击了某个功能选项
     clickOptionAction = (param: ClickParam)=> {
-        this.setState(
-            {
-                ...this.state,
-                content: param.key
-            }
-        );
+        this.props.dispatch(selectTool(param.key))
     }
-
-
-
 }
 
-
-export default App;
+export default connect((state) => {return {...state}})(App);
