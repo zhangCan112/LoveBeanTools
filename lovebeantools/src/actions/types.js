@@ -20,6 +20,7 @@ export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRa
 export const ActionType = {
     selectGroup: "selectGroup",
     selelctTool: "selelctTool",
+    computeGrowthRate: "computeGrowthRate",
 };
 
 /*
@@ -28,4 +29,5 @@ export const ActionType = {
 export type Action =
       {type: typeof ActionType.selectGroup, group: GroupType}
     | {type: typeof ActionType.selelctTool, tool: ToolType}
+    | {type: typeof ActionType.computeGrowthRate, thisValue: number, lastValue: number, reuseid: string}
 

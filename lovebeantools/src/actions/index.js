@@ -28,3 +28,13 @@ export function selectTool(tool: ToolType): Action {
         tool: tool,
     }
 }
+
+//计算增长率
+export function computeGrowthRate(thisValue: number, lastValue: number, reuseid: string): Action {
+    return {
+        type: ActionType.computeGrowthRate,
+        thisValue: thisValue,
+        lastValue: lastValue,
+        reuseid: reuseid,
+    }
+}
