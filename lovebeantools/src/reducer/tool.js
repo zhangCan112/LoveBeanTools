@@ -1,7 +1,6 @@
 //@flow
 
 import type {Action, ToolType} from '../actions/types';
-import {ActionType} from "../actions/types";
 
 export type State = {
     tooltype: ?ToolType,
@@ -12,7 +11,7 @@ const initialState: State = {
 };
 
 export default function tool(state: State = initialState, action: Action): State {
-    if (action.type === ActionType.selelctTool) {
+    if (action.type === "selelctTool") {
         let tool = action.tool;
         return {
             ...state,

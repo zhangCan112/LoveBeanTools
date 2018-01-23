@@ -1,5 +1,4 @@
 //@flow
-import {ActionType} from './types';
 import type {Action, GroupType, ToolType} from './types';
 
 
@@ -16,7 +15,7 @@ import type {Action, GroupType, ToolType} from './types';
 //选择了某组工具
 export function selectGroup(group: GroupType): Action {
     return {
-        type: ActionType.selectGroup,
+        type: "selectGroup",
         group: group,
     }
 }
@@ -24,17 +23,33 @@ export function selectGroup(group: GroupType): Action {
 //选择了某个工具
 export function selectTool(tool: ToolType): Action {
     return {
-        type: ActionType.selelctTool,
+        type: "selelctTool",
         tool: tool,
     }
 }
 
-//计算增长率
-export function computeGrowthRate(thisValue: number, lastValue: number, reuseid: string): Action {
+//设置了增长率的本期值
+export function setGrowthRateThisValue(thisValue: ?string, reuseid: string): Action {
     return {
-        type: ActionType.computeGrowthRate,
+        type: "setGrowthRateThisValue",
         thisValue: thisValue,
+        reuseid: reuseid,
+    }
+}
+
+//设置了增长率的上期值
+export function setGrowthRateLastValue(lastValue: ?string, reuseid: string): Action {
+    return {
+        type: "setGrowthRateLastValue",
         lastValue: lastValue,
+        reuseid: reuseid,
+    }
+}
+
+//移除增长率复用数据
+export function deleteGrowthRate(reuseid: string): Action {
+    return {
+        type: "deleteGrowthRate",
         reuseid: reuseid,
     }
 }

@@ -15,19 +15,20 @@ export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRa
 
 
 /*
- * actionType
- */
-export const ActionType = {
-    selectGroup: "selectGroup",
-    selelctTool: "selelctTool",
-    computeGrowthRate: "computeGrowthRate",
-};
-
-/*
  * action 类型
  */
+
+export type SelelctToolAction = {type: "selelctTool", tool: ToolType}
+export type SelectGroupAction = {type: "selectGroup" , group: GroupType}
+export type SetGrowthRateThisValue = {type: "setGrowthRateThisValue", reuseid: string, thisValue: ?string}
+export type SetGrowthRateLastValue = {type: "setGrowthRateLastValue", reuseid: string, lastValue: ?string}
+export type DeleteGrowthRateAction = {type: "deleteGrowthRate",  reuseid: string}
+
 export type Action =
-      {type: typeof ActionType.selectGroup, group: GroupType}
-    | {type: typeof ActionType.selelctTool, tool: ToolType}
-    | {type: typeof ActionType.computeGrowthRate, thisValue: number, lastValue: number, reuseid: string}
+      SelectGroupAction
+    | SelelctToolAction
+    | DeleteGrowthRateAction
+    | SetGrowthRateThisValue
+    | SetGrowthRateLastValue
+
 

@@ -6,7 +6,7 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { connect } from 'react-redux';
 import DateDistanceToolView from './component/DateDistanceToolView';
 import DateAfterToolView from './component/DateAfterToolView';
-import OnYearOnYearBasisRatioView from './container/OnYearOnYearBasisRatioView';
+import OnYearBasisRatioView from './container/OnYearBasisRatioView';
 import LinkRelativeRatioView from './container/LinkRelativeRatioView';
 import {selectTool} from "./actions";
 import type {ToolType} from './actions/types';
@@ -93,7 +93,7 @@ class App extends Component {
           case "CalculateOneDay":
               return (<DateAfterToolView/>);
           case "OnYearOnYearBasisRatio":
-              return (<OnYearOnYearBasisRatioView/>);
+              return (<OnYearBasisRatioView {...this.props}/>);
           case "LinkRelativeRatio":
               return (<LinkRelativeRatioView/>);
           default:
