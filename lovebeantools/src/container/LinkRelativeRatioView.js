@@ -1,13 +1,11 @@
 //@flow
 
 import React, { Component } from 'react';
-import GrowthRateView from '../component/GrowthRateView';
-import {setGrowthRateLastValue, setGrowthRateThisValue} from '../actions';
+import GrowthRate from './GrowthRateContainer';
 
 export default class LinkRelativeRatioView extends Component {
     reuseid = "LinkRelativeRatioView";
     render() {
-        let growtRate = this.props.growthRate[this.reuseid];
         return (
             <div>
                 <h1>环比增长</h1>
@@ -25,29 +23,12 @@ export default class LinkRelativeRatioView extends Component {
                     环比发展速度=500/350×100%=142.86%<br/>
                 </p>
                 <div>
-                    <GrowthRateView placeHolders={['本期数', '上期数', '上期数', '环比增长率结果']}
-                                    reuseid={this.reuseid}
-                                    numerator_left={growtRate && (growtRate.thisValue ? growtRate.thisValue : null)}
-                                    numerator_right={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
-                                    denominator={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
-                                    result={growtRate && growtRate.result}
-                                    onDenominatorChange={(text) => this.onDenominatorChange(text)}
-                                    onNumeratorRightChange={(text) => this.onNumeratorRightChange(text)}
-                                    onNumeratorLeftChange={(text) => this.onNumeratorLeftChange(text)}/>
+                    <GrowthRate {...this.props}
+                                placeHolders={['本期数', '上期数', '上期数', '环比增长率结果']}
+                                reuseid={this.reuseid}
+                                    />
                 </div>
             </div>
         )
     }
-
-    onNumeratorRightChange = (num: ?string) => {
-        this.props.dispatch(setGrowthRateLastValue(num, this.reuseid));
-    };
-
-    onNumeratorLeftChange = (num: ?string) => {
-        this.props.dispatch(setGrowthRateThisValue(num, this.reuseid));
-    };
-
-    onDenominatorChange = (num: ?string) => {
-        this.props.dispatch(setGrowthRateLastValue(num, this.reuseid));
-    };
 }

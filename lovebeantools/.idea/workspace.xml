@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="591ef705-095a-4d72-a794-0db9bb13b64c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/container/GrowthRateContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/LinkRelativeRatioView.js" afterPath="$PROJECT_DIR$/src/container/LinkRelativeRatioView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/OnYearBasisRatioView.js" afterPath="$PROJECT_DIR$/src/container/OnYearBasisRatioView.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,16 +29,6 @@
               <folding>
                 <element signature="e#9#136#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicEvaluatedExpression.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/webpack/lib/BasicEvaluatedExpression.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -87,8 +78,8 @@
       <file leaf-file-name="GrowthRateView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/GrowthRateView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="120">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="53" />
               <folding>
                 <element signature="e#9#50#0" expanded="true" />
               </folding>
@@ -99,8 +90,8 @@
       <file leaf-file-name="LinkRelativeRatioView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/container/LinkRelativeRatioView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="34" column="68" lean-forward="false" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+            <state relative-caret-position="495">
+              <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
               <folding>
                 <element signature="e#9#50#0" expanded="true" />
               </folding>
@@ -108,7 +99,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GrowthRateContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/container/GrowthRateContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding>
+                <element signature="e#8#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
@@ -120,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnYearBasisRatioView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OnYearBasisRatioView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/container/OnYearBasisRatioView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="e#9#50#0" expanded="true" />
               </folding>
@@ -204,10 +207,11 @@
         <option value="$PROJECT_DIR$/src/units/index.js" />
         <option value="$PROJECT_DIR$/src/actions/types.js" />
         <option value="$PROJECT_DIR$/src/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/container/OnYearBasisRatioView.js" />
         <option value="$PROJECT_DIR$/src/reducer/growthRate.js" />
-        <option value="$PROJECT_DIR$/src/container/LinkRelativeRatioView.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/container/GrowthRateContainer.js" />
+        <option value="$PROJECT_DIR$/src/container/LinkRelativeRatioView.js" />
+        <option value="$PROJECT_DIR$/src/container/OnYearBasisRatioView.js" />
       </list>
     </option>
   </component>
@@ -408,12 +412,12 @@
       <workItem from="1516238100300" duration="5776000" />
       <workItem from="1516252516687" duration="7488000" />
       <workItem from="1516329851591" duration="23602000" />
-      <workItem from="1516669297767" duration="10775000" />
+      <workItem from="1516669297767" duration="11433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134838000" />
+    <option name="totallyTimeSpent" value="135496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -471,7 +475,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/component/BigButton.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/antd/es/input/Input.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -809,20 +812,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="78" column="63" lean-forward="true" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
+          <folding>
+            <element signature="e#8#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/GrowthRateView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="53" />
           <folding>
             <element signature="e#9#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/GrowthRateContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#8#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/container/LinkRelativeRatioView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="34" column="68" lean-forward="false" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+        <state relative-caret-position="495">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
           <folding>
             <element signature="e#9#50#0" expanded="true" />
           </folding>
@@ -831,20 +854,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/container/OnYearBasisRatioView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="78" column="63" lean-forward="true" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
-          <folding>
-            <element signature="e#8#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
