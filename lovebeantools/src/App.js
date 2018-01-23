@@ -68,6 +68,10 @@ class App extends Component {
                             <Menu.Item key="OnYearOnYearBasisRatio">同比增长</Menu.Item>
                             <Menu.Item key="LinkRelativeRatio">环比增长</Menu.Item>
                         </SubMenu>
+                        <SubMenu key="sub3" title={<span><Icon type="laptop" />返点计算</span>}>
+                            <Menu.Item key="OnYearOnYearBasisRatio">同比增长</Menu.Item>
+                            <Menu.Item key="LinkRelativeRatio">环比增长</Menu.Item>
+                        </SubMenu>
                     </Menu>
                 </Sider>
                 <Layout style={{ padding: '0 24px 24px' }}>
@@ -95,7 +99,7 @@ class App extends Component {
           case "OnYearOnYearBasisRatio":
               return (<OnYearBasisRatioView {...this.props}/>);
           case "LinkRelativeRatio":
-              return (<LinkRelativeRatioView/>);
+              return (<LinkRelativeRatioView {...this.props}/>);
           default:
               return null;
       }
