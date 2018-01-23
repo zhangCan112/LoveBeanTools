@@ -10,8 +10,10 @@ import OnYearBasisRatioView from './container/OnYearBasisRatioView';
 import LinkRelativeRatioView from './container/LinkRelativeRatioView';
 import {selectTool} from "./actions";
 import type {ToolType} from './actions/types';
+import MTReturnMoneyItem from './component/MTReturnMoneyItem';
 const { SubMenu, ClickParam } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
+
 
 class App extends Component {
 
@@ -99,6 +101,8 @@ class App extends Component {
               return (<OnYearBasisRatioView {...this.props}/>);
           case "LinkRelativeRatio":
               return (<LinkRelativeRatioView {...this.props}/>);
+          case "ISaveMoneyFromMT":
+              return (<MTReturnMoneyItem {...this.props}/>);
           default:
               return null;
       }
