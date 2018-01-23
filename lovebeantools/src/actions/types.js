@@ -11,7 +11,7 @@ export type GroupType = "Date" | "Rate" | "Other";
 /*
  * tool 类型
  */
-export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRatio" | "LinkRelativeRatio";
+export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRatio" | "LinkRelativeRatio" | "ISaveMoneyFromMT";
 
 
 /*

@@ -11,6 +11,7 @@ type Props = {
     numerator_left?: ?number;
     numerator_right?: ?number;
     result?: number;
+    resultStatus?: 'add' | 'reduce';
     onDenominatorChange?: (text: ?string)=> void;
     onNumeratorLeftChange?: (text: ?string)=> void;
     onNumeratorRightChange?: (text: ?string)=> void;
@@ -55,7 +56,9 @@ export default class GrowthRateView extends Component {
                 <span> </span>
                 <span style={{fontSize: 30}}>=</span>
                 <span> </span>
-                <span style={{fontSize: 30, color: 'red'}}>{ this.props.result ? this.props.result :  placeholders[3]}</span>
+                <span style={(this.props.resultStatus && this.props.resultStatus === 'reduce') ? {fontSize: 30, color: 'green'} : {fontSize: 30, color: 'red'}}>
+                    { this.props.result ? this.props.result :  placeholders[3]}
+                    </span>
             </div>
         );
     }

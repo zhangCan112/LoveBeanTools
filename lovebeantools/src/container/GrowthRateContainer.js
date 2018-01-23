@@ -12,6 +12,14 @@ type Props = {
 export default class GrowthRateContainer extends Component {
     render() {
         let growtRate = this.props.growthRate[this.props.reuseid];
+        let result = growtRate && growtRate.result;
+        let resultStatus = 'add';
+        if  (result) {
+            result = result.split("%").join("");
+            if (!isNaN(result)) {
+                resultStatus =  Number(result) <= 0 ? 'reduce' : 'add';
+            }
+        }
         return (
                 <div>
                     <GrowthRateView placeHolders={this.props.placeHolders}
@@ -20,6 +28,7 @@ export default class GrowthRateContainer extends Component {
                                     numerator_right={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
                                     denominator={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
                                     result={growtRate && growtRate.result}
+                                    resultStatus={resultStatus}
                                     onDenominatorChange={(text) => this.onDenominatorChange(text)}
                                     onNumeratorRightChange={(text) => this.onNumeratorRightChange(text)}
                                     onNumeratorLeftChange={(text) => this.onNumeratorLeftChange(text)}/>
