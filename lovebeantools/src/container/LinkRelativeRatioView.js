@@ -1,11 +1,12 @@
 //@flow
 
 import React, { Component } from 'react';
-import GrowthRate from './GrowthRateContainer';
+import GrowthRateContainer from './GrowthRateContainer';
 
 export default class LinkRelativeRatioView extends Component {
     reuseid = "LinkRelativeRatioView";
     render() {
+        let placeHolders: [?string, ?string, ?string, ?string] = ['本期数', '上期数', '上期数', '环比增长率结果'];
         return (
             <div>
                 <h1>环比增长</h1>
@@ -23,8 +24,8 @@ export default class LinkRelativeRatioView extends Component {
                     环比发展速度=500/350×100%=142.86%<br/>
                 </p>
                 <div>
-                    <GrowthRate {...this.props}
-                                placeHolders={['本期数', '上期数', '上期数', '环比增长率结果']}
+                    <GrowthRateContainer {...this.props}
+                                placeHolders={placeHolders}
                                 reuseid={this.reuseid}
                                     />
                 </div>

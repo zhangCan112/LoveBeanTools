@@ -7,7 +7,7 @@ import {setGrowthRateLastValue, setGrowthRateThisValue} from '../actions';
 export default class OnYearBasisRatioView extends Component {
     reuseid = "OnYearBasisRatioView";
     render() {
-        let growtRate = this.props.growthRate[this.reuseid];
+        let placeHolders: [?string, ?string, ?string, ?string] = ['今年同期数', '上年同期数', '上年同期数', '同比增长率结果'];
         return (
             <div>
                 <h1>同比增长</h1>
@@ -16,7 +16,7 @@ export default class OnYearBasisRatioView extends Component {
                 </p>
                 <div>
                     <GrowthRate  {...this.props}
-                                 placeHolders={['今年同期数', '上年同期数', '上年同期数', '同比增长率结果']}
+                                 placeHolders={placeHolders}
                                  reuseid={this.reuseid}/>
                 </div>
             </div>

@@ -5,24 +5,24 @@ import {Input} from 'antd';
 
 
 type Props = {
-    reuseid?: string;
-    placeHolders?: [?string,?string,?string,?string];
-    denominator?: ?number;
-    numerator_left?: ?number;
-    numerator_right?: ?number;
-    result?: number;
-    resultStatus?: 'add' | 'reduce';
-    onDenominatorChange?: (text: ?string)=> void;
-    onNumeratorLeftChange?: (text: ?string)=> void;
-    onNumeratorRightChange?: (text: ?string)=> void;
+    reuseid?: string,
+    placeHolders?: [?string,?string,?string,?string],
+    denominator?: ?string,
+    numerator_left?: ?string,
+    numerator_right?: ?string,
+    result?: ?string,
+    resultStatus?: 'add' | 'reduce',
+    onDenominatorChange?: (text: ?string)=> void,
+    onNumeratorLeftChange?: (text: ?string)=> void,
+    onNumeratorRightChange?: (text: ?string)=> void,
 };
 
 export default class GrowthRateView extends Component {
 
     props: Props;
-    static defaultProps = {
-        placeHolders: ['请输入', '请输入', '请输入', '结果'],
-    };
+    // static defaultProps = {
+    //     placeHolders: ['请输入', '请输入', '请输入', '结果'],
+    // };
     constructor() {
         super();
     }

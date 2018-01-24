@@ -8,6 +8,7 @@ import DateDistanceToolView from './component/DateDistanceToolView';
 import DateAfterToolView from './component/DateAfterToolView';
 import OnYearBasisRatioView from './container/OnYearBasisRatioView';
 import LinkRelativeRatioView from './container/LinkRelativeRatioView';
+import MTReturnSaveContainer from './container/MTReturnSaveContainer';
 import {selectTool} from "./actions";
 import type {ToolType} from './actions/types';
 import MTReturnMoneyItem from './component/MTReturnMoneyItem';
@@ -102,7 +103,7 @@ class App extends Component {
           case "LinkRelativeRatio":
               return (<LinkRelativeRatioView {...this.props}/>);
           case "ISaveMoneyFromMT":
-              return (<MTReturnMoneyItem {...this.props}/>);
+              return (<MTReturnSaveContainer {...this.props}/>);
           default:
               return null;
       }

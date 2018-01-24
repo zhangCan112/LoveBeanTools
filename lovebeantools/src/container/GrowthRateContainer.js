@@ -2,16 +2,23 @@
 import React, { Component } from 'react';
 import GrowthRateView from '../component/GrowthRateView';
 import {setGrowthRateLastValue, setGrowthRateThisValue} from '../actions';
+import type {State as GrowthRates, subState as GrowthRate} from '../reducer/growthRate';
+import type {Dispatch} from '../actions/types';
 
 
 type Props = {
-    placeHolders?: [?string,?string,?string,?string];
-    reuseid: string;
+    placeHolders?: [?string, ?string, ?string, ?string],
+    reuseid: string,
+    growthRate: GrowthRates,
+    dispatch: Dispatch,
 }
 
 export default class GrowthRateContainer extends Component {
+
+    props: Props;
+
     render() {
-        let growtRate = this.props.growthRate[this.props.reuseid];
+        let growtRate: GrowthRate = this.props.growthRate[this.props.reuseid];
         let result = growtRate && growtRate.result;
         let resultStatus = 'add';
         if  (result) {
@@ -27,7 +34,7 @@ export default class GrowthRateContainer extends Component {
                                     numerator_left={growtRate && (growtRate.thisValue ? growtRate.thisValue : null)}
                                     numerator_right={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
                                     denominator={growtRate && (growtRate.lastValue ? growtRate.lastValue : null)}
-                                    result={growtRate && growtRate.result}
+                                    result={growtRate ? growtRate.result : null}
                                     resultStatus={resultStatus}
                                     onDenominatorChange={(text) => this.onDenominatorChange(text)}
                                     onNumeratorRightChange={(text) => this.onNumeratorRightChange(text)}
