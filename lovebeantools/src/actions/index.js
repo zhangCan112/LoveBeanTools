@@ -1,6 +1,6 @@
 //@flow
 import type {Action, GroupType, ToolType} from './types';
-
+import type {SubState as DeductPointAmountItem}  from '../reducer/deductPointAmount';
 
 /*
  * 其它的常量
@@ -51,5 +51,56 @@ export function deleteGrowthRate(reuseid: string): Action {
     return {
         type: "deleteGrowthRate",
         reuseid: reuseid,
+    }
+}
+
+//设置打款明细的实际打款额
+export function setDeductPoint(key: number, deductPoint: ?string): Action {
+    return {
+        type: "setDeductPoint",
+        key: key,
+        deductPoint: deductPoint,
+    }
+}
+
+//设置打款明细的折扣点数
+export function setActualAmount(key: number, actualAmount: ?string): Action {
+    return {
+        type: "setActualAmount",
+        key: key,
+        actualAmount: actualAmount,
+    }
+}
+
+//设置打款明细
+export function setDeducPointAmount(key: number,  deductPoint: ?string, actualAmount: ?string): Action {
+    return {
+        type: "setDeducPointAmount",
+        key: key,
+        actualAmount: actualAmount,
+        deductPoint:deductPoint,
+    }
+}
+
+//添加打款明细
+export function addDeducPointAmount(): Action {
+    return {
+        type: "addDeducPointAmount",
+    }
+}
+
+//删除打款明细
+export function deleteDeducPointAmount(key: number): Action {
+    return {
+        type: "deleteDeducPointAmount",
+        key: key,
+    }
+}
+
+//计算打款折扣的优惠省了多少钱
+export function computeDeductPointSaveAmount(details: DeductPointAmountItem[]): Action {
+    return {
+        type: "computeDeductPointSaveAmount",
+        details: details,
     }
 }

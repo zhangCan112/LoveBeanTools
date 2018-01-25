@@ -3,12 +3,20 @@ import React, { Component, Element } from 'react';
 import { Form, Input, Icon, Button } from 'antd';
 import MTReturnMoneyItem from '../component/MTReturnMoneyItem';
 import '../css/MTReturnSaveContainer.css';
+import type {Value as MTReturnMoneyItemValue} from '../component/MTReturnMoneyItem';
+import type {Dispatch} from '../actions/types';
+import {setDeducPointAmount, computeDeductPointSaveAmount, addDeducPointAmount, deleteDeducPointAmount} from '../actions';
+import type {State as DeductPointAmountMap } from '../reducer/deductPointAmount';
+import type {State as DeductPointSaveAmountMap} from '../reducer/deductPointSaveAmount';
 const { WrappedFormUtils } = Form;
 const FormItem = Form.Item;
 let uuid = 0;
 
 type Props = {
     form: WrappedFormUtils,
+    deductPointSaveAmount: DeductPointSaveAmountMap,
+    deductPointAmount :DeductPointAmountMap,
+    dispatch: Dispatch,
 }
 
 class MTReturnSaveContainer extends React.Component {
@@ -20,7 +28,6 @@ class MTReturnSaveContainer extends React.Component {
     render() {
         const getFieldDecorator = this.props.form.getFieldDecorator;
         const getFieldValue = this.props.form.getFieldValue;
-
         const formItemLayoutWithOutLabel = {
             wrapperCol: {
                 xs: { span: 24, offset: 0 },
@@ -37,9 +44,7 @@ class MTReturnSaveContainer extends React.Component {
                 sm: { span: 20 },
             },
         };
-
-        getFieldDecorator('keys', { initialValue: [] });
-        const keys: number[] = getFieldValue('keys');
+        const keys: number[] = this.props.deductPointSaveAmount.keys;
         const formItems: Element<any>[] = keys.map((key, index) => {
             return (
                 <FormItem  {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
@@ -49,12 +54,14 @@ class MTReturnSaveContainer extends React.Component {
                     {getFieldDecorator(`field[${key}]`,{
                         validateTrigger: ['onChange', 'onBlur'],
                         rules: [{
-                            required: true,
-                            whitespace: true,
-                            message: "请输全打款明细的内容，或者删除该明细！",
+                            validator: this.validatorMTReturnMoneyItemValue,
                         }],
                     })(
-                        <MTReturnMoneyItem/>
+                        <MTReturnMoneyItem
+                            onChange={(value: MTReturnMoneyItemValue)=>{
+                                this.props.dispatch(setDeducPointAmount(key,value.deductPoint,value.actualAmount))
+                            }}
+                        />
                     )}
                     {keys.length > 1 ? (
                         <Icon
@@ -87,35 +94,55 @@ class MTReturnSaveContainer extends React.Component {
     //提交
     onSubmit = (e: Event): void => {
         e.preventDefault();
-        //判断是否可以提交
-        //提交
+        this.props.form.validateFields((err, values) => {
+            //判断是否可以提交
+            if (err) {
+                alert('信息有误，请补充或删除无效的对象');
+                return;
+            }
+            //提交
+        });
+
     };
 
     //添加一个新的
     add = (): void => {
-        const form = this.props.form;
-        const keys: number[] = form.getFieldValue('keys');
-        const nextKeys = keys.concat(uuid++);
-        //更新form的值
-        form.setFieldsValue({
-            keys: nextKeys,
-        })
+        this.props.dispatch(addDeducPointAmount());
     };
 
     //删除指定的一条
     remove = (k: number): void => {
-        const form = this.props.form;
-        const keys: number[] = form.getFieldValue('keys');
-        //至少要保留一项
-        if (keys.length == 1) {
+        this.props.dispatch(deleteDeducPointAmount(k))
+    };
+    //明细输入内容的验证规则
+    validatorMTReturnMoneyItemValue = (rule: any, value: MTReturnMoneyItemValue, callback: (error: ?string)=>void) => {
+        if  (value === undefined) {
+            callback('请输入打款明细，或者删除该明细！');
+            return;
+        } else if (!value.actualAmount && !value.deductPoint) {
+            callback('请输入打款明细，或者删除该明细！');
+            return;
+        } else if (!value.actualAmount) {
+            callback('请输入打款金额');
+            return;
+        } else if (!value.deductPoint) {
+            callback('请输入扣点');
             return;
         }
-        //更新form的值，过滤掉制定的
-        form.setFieldsValue({
-            keys: keys.filter(key => key !== k),
-        })
+        callback();
     };
 
 }
 
-export default Form.create()(MTReturnSaveContainer);
+export default Form.create({
+    mapPropsToFields(props: Props) {
+        return {
+            field: Form.createFormField({
+                ...props.deductPointAmount
+            })
+        };
+    },
+    onValuesChange(_, values) {
+        console.log(values);
+    },
+})(MTReturnSaveContainer);
