@@ -49,7 +49,6 @@ function setDeductPoint(action: SetDeductPoint, state: State ): State {
 }
 function setDeducPointAmount(action: SetDeducPointAmount, state: State): State {
     let subState = state[action.key];
-    if (!subState) return state;
     return {
         ...state,
         [action.key]: {...subState, deductPoint:action.deductPoint, actualAmount:action.actualAmount}

@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import {Input} from 'antd';
+import {computeDeductPointOriginAmount} from '../units';
 
 
 export type Value = {
@@ -16,8 +17,6 @@ type Props = {
     value?: Value,
     onBlur?: (e: any)=>void,
     onChange?: (value: Value)=>void,
-    //原金额
-    originAmount?: ?string,
 }
 
 export default class MTReturnMoneyItem extends Component {
@@ -42,6 +41,7 @@ export default class MTReturnMoneyItem extends Component {
                 <span> 原金额：</span>
                 <Input style={{width: 90}}
                        placeholder={'原款金额'}
+                       value={this.compute()}
                        readOnly={true}/>
                 <span>元</span>
             </span>
@@ -52,18 +52,33 @@ export default class MTReturnMoneyItem extends Component {
     onActualAmountChange = (value: string)=>{
         let onChange = this.props.onChange;
         let detail: Value = {...this.props.value};
-        detail.actualAmount = value;
         if (onChange){
-            onChange(detail);
+            onChange({
+                ...this.props.value,
+                actualAmount: value,
+            });
         }
     };
     //onDeductPointChange
     onDeductPointChange = (value: string)=>{
         let onChange = this.props.onChange;
-        let detail: Value = {...this.props.value};
-        detail.deductPoint = value;
         if (onChange){
-            onChange(detail);
+            onChange( {
+                ...this.props.value,
+                deductPoint: value,
+            });
         }
     };
+    //compute
+    compute = (): ?number => {
+        let value = this.props.value;
+        if (!value) return null;
+        let actualAmount = value.actualAmount;
+        let deductPoint = value.deductPoint;
+        if (!actualAmount || !deductPoint) return null;
+        if (isNaN(actualAmount) || isNaN(deductPoint)) return null;
+        let actualAmountNum = Number(actualAmount);
+        let deductPointNum = Number(deductPoint);
+       return computeDeductPointOriginAmount(actualAmountNum, deductPointNum);
+    }
 }

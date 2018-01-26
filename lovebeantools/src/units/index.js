@@ -12,8 +12,8 @@ export function computeGrowthRate(thisValue?: ?number, lastValue?: ?number): ?nu
 
 
 //已知扣点和扣除后的金额，计算原金额
-export function computeDeductPointOriginAmount(actualAmount: number, deductPoint: number): number {
-    return actualAmount / (1 - deductPoint);
+export function computeDeductPointOriginAmount(actualAmount: number, deductPoint/*单位：%*/: number): number {
+    return actualAmount / (1 - deductPoint/100);
 }
 
  //扣点省钱计算公式

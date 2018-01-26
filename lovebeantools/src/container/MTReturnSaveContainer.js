@@ -1,6 +1,6 @@
 //@flow
 import React, { Component, Element } from 'react';
-import { Form, Input, Icon, Button } from 'antd';
+import { Icon, Button } from 'antd';
 import MTReturnMoneyItem from '../component/MTReturnMoneyItem';
 import '../css/MTReturnSaveContainer.css';
 import type {Value as MTReturnMoneyItemValue} from '../component/MTReturnMoneyItem';
@@ -8,103 +8,69 @@ import type {Dispatch} from '../actions/types';
 import {setDeducPointAmount, computeDeductPointSaveAmount, addDeducPointAmount, deleteDeducPointAmount} from '../actions';
 import type {State as DeductPointAmountMap } from '../reducer/deductPointAmount';
 import type {State as DeductPointSaveAmountMap} from '../reducer/deductPointSaveAmount';
-const { WrappedFormUtils } = Form;
-const FormItem = Form.Item;
-let uuid = 0;
+import validateDecorator from '../higherOrderComponent/ValidateDecorator';
+
 
 type Props = {
-    form: WrappedFormUtils,
+
     deductPointSaveAmount: DeductPointSaveAmountMap,
     deductPointAmount :DeductPointAmountMap,
     dispatch: Dispatch,
 }
 
-class MTReturnSaveContainer extends React.Component {
+class MTReturnSaveContainer extends Component {
     props: Props;
 
     componentDidMount(): void {
         this.add();
     }
     render() {
-        const getFieldDecorator = this.props.form.getFieldDecorator;
-        const getFieldValue = this.props.form.getFieldValue;
-        const formItemLayoutWithOutLabel = {
-            wrapperCol: {
-                xs: { span: 24, offset: 0 },
-                sm: { span: 20, offset: 4 },
-            },
-        };
-        const formItemLayout = {
-            labelCol: {
-                xs: { span: 24 },
-                sm: { span: 4 },
-            },
-            wrapperCol: {
-                xs: { span: 24 },
-                sm: { span: 20 },
-            },
-        };
         const keys: number[] = this.props.deductPointSaveAmount.keys;
         const formItems: Element<any>[] = keys.map((key, index) => {
             return (
-                <FormItem  {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                           label={index === 0 ? '打款明细' : ''}
-                           required={false}
-                           key={key}>
-                    {getFieldDecorator(`field[${key}]`,{
-                        validateTrigger: ['onChange', 'onBlur'],
-                        rules: [{
-                            validator: this.validatorMTReturnMoneyItemValue,
-                        }],
-                    })(
-                        <MTReturnMoneyItem
-                            onChange={(value: MTReturnMoneyItemValue)=>{
-                                this.props.dispatch(setDeducPointAmount(key,value.deductPoint,value.actualAmount))
-                            }}
-                        />
-                    )}
-                    {keys.length > 1 ? (
-                        <Icon
-                            className="dynamic-delete-button"
-                            type="minus-circle-o"
-                            disabled={keys.length === 1}
-                            onClick={() => this.remove(key)}
-                        />
+                <div>
+                    {index === 0 ? (
+                        <h3>打款明细</h3>
                     ) : null}
-                </FormItem>
+                    {validateDecorator()(<span>
+                        <MTReturnMoneyItem value={this.props.deductPointAmount[key]} onChange={(value) => {
+                            this.props.dispatch(setDeducPointAmount(key,value.deductPoint,value.actualAmount));
+                        }}/>
+                        {keys.length > 1 ? (
+                            <Icon
+                                className="dynamic-delete-button"
+                                type="minus-circle-o"
+                                disabled={keys.length === 1}
+                                onClick={() => this.remove(key)}
+                            />
+                        ) : null}
+                    </span>)}
+                </div>
             );
         });
 
         return (
-            <Form onSubmit={this.onSubmit}>
+            <div>
+                <p>
+                    <span style={{fontSize: 20}}>正常扣点:</span>
+                    <input/>
+                    <span>%</span>
+                </p>
                 {formItems}
-                <FormItem {...formItemLayoutWithOutLabel}>
-                    <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-                        <Icon type="plus" /> 新增一项
-                    </Button>
-                </FormItem>
-                <FormItem {...formItemLayoutWithOutLabel}>
-                    <Button type="primary" htmlType="submit" style={{ width: '60%' }}>计算</Button>
-                </FormItem>
-            </Form>
+                <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
+                    <Icon type="plus" /> 新增一项
+                </Button>
+                <p> {''} </p>
+                <Button type="primary" htmlType="submit" style={{ width: '60%' }}>计算</Button>
+            </div>
         );
     }
 
     //event
     //提交
     onSubmit = (e: Event): void => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            //判断是否可以提交
-            if (err) {
-                alert('信息有误，请补充或删除无效的对象');
-                return;
-            }
-            //提交
-        });
 
     };
-
     //添加一个新的
     add = (): void => {
         this.props.dispatch(addDeducPointAmount());
@@ -134,15 +100,4 @@ class MTReturnSaveContainer extends React.Component {
 
 }
 
-export default Form.create({
-    mapPropsToFields(props: Props) {
-        return {
-            field: Form.createFormField({
-                ...props.deductPointAmount
-            })
-        };
-    },
-    onValuesChange(_, values) {
-        console.log(values);
-    },
-})(MTReturnSaveContainer);
+export default MTReturnSaveContainer;
