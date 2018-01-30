@@ -18,11 +18,11 @@ export function computeDeductPointOriginAmount(actualAmount: number, deductPoint
 
  //扣点省钱计算公式
 export function computeDeductPointSaveAmout(rulePoint: number, details: [/*实际金额*/number,/*折扣点*/number][]): number {
-    let totalActualAmount = 0;
     let totalOriginAmount = 0;
+    let totalActualAmount = 0;
     details.forEach((value: [/*实际金额*/number,/*折扣点*/number], index: number) => {
-        totalActualAmount += computeDeductPointOriginAmount(value[0],value[1]);
-        totalOriginAmount += computeDeductPointOriginAmount(value[0],rulePoint);
+        totalOriginAmount += computeDeductPointOriginAmount(value[0],value[1]);
+        totalActualAmount += value[0];
     });
-    return totalOriginAmount - totalActualAmount;
+    return totalActualAmount - totalOriginAmount *  ( (100 - rulePoint) / 100);
 }
