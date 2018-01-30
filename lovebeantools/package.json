@@ -52,7 +52,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,5 +102,6 @@
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1"
-  }
+  },
+  "homepage" : "http://tool.lovebean.com/"
 }
