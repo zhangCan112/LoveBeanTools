@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="591ef705-095a-4d72-a794-0db9bb13b64c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/index.js" afterPath="$PROJECT_DIR$/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/types.js" afterPath="$PROJECT_DIR$/src/actions/types.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/MTReturnSaveContainer.js" afterPath="$PROJECT_DIR$/src/container/MTReturnSaveContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducer/deductPointSaveAmount.js" afterPath="$PROJECT_DIR$/src/reducer/deductPointSaveAmount.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/units/index.js" afterPath="$PROJECT_DIR$/src/units/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js" afterPath="$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,24 +20,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MTReturnSaveContainer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MTReturnSaveContainer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/container/MTReturnSaveContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-263">
-              <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="62" />
+            <state relative-caret-position="-20">
+              <caret line="57" column="40" lean-forward="true" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
               <folding>
                 <element signature="e#8#58#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkRelativeRatioView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/container/LinkRelativeRatioView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="98" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="98" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -56,24 +42,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GrowthRateContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/container/GrowthRateContainer.js">
+      <file leaf-file-name="MTReturnSaveContainer.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/MTReturnSaveContainer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="47" />
+            <state relative-caret-position="225">
+              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deductPointSaveAmount.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ValidateDecorator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <element signature="e#8#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deductPointSaveAmount.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducer/deductPointSaveAmount.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+            <state relative-caret-position="120">
+              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding>
                 <element signature="e#15#155#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrowthRateView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/component/GrowthRateView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,12 +96,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
+      <file leaf-file-name="deductPointAmount.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reducer/deductPointAmount.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,23 +118,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="growthRate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducer/growthRate.js">
+      <file leaf-file-name="MTReturnMoneyItem.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/component/MTReturnMoneyItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deductPointAmount.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducer/deductPointAmount.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="15" />
+            <state relative-caret-position="240">
+              <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#22#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -210,12 +211,12 @@
         <option value="$PROJECT_DIR$/src/reducer/index.js" />
         <option value="$PROJECT_DIR$/src/reducer/deductPointAmount.js" />
         <option value="$PROJECT_DIR$/src/component/MTReturnMoneyItem.js" />
-        <option value="$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js" />
         <option value="$PROJECT_DIR$/src/actions/types.js" />
         <option value="$PROJECT_DIR$/src/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/container/MTReturnSaveContainer.js" />
         <option value="$PROJECT_DIR$/src/units/index.js" />
         <option value="$PROJECT_DIR$/src/reducer/deductPointSaveAmount.js" />
+        <option value="$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js" />
+        <option value="$PROJECT_DIR$/src/container/MTReturnSaveContainer.js" />
       </list>
     </option>
   </component>
@@ -446,12 +447,12 @@
       <workItem from="1516842922523" duration="24447000" />
       <workItem from="1516878250628" duration="2852000" />
       <workItem from="1516929338526" duration="17742000" />
-      <workItem from="1517276368689" duration="5915000" />
+      <workItem from="1517276368689" duration="9708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208546000" />
+    <option name="totallyTimeSpent" value="212339000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/MTReturnSaveContainer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/form/Form.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1860">
@@ -724,40 +718,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/GrowthRateView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding>
-            <element signature="e#8#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/MTReturnMoneyItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#22#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,28 +784,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducer/deductPointAmount.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/container/LinkRelativeRatioView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="98" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/OnYearBasisRatioView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -858,16 +805,6 @@
         <state relative-caret-position="418">
           <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/MTReturnSaveContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-263">
-          <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="62" />
-          <folding>
-            <element signature="e#8#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,12 +832,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducer/deductPointAmount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/MTReturnSaveContainer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/higherOrderComponent/ValidateDecorator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#8#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/OnYearBasisRatioView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/MTReturnMoneyItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#22#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/GrowthRateView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducer/deductPointSaveAmount.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        <state relative-caret-position="120">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding>
             <element signature="e#15#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/MTReturnSaveContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="57" column="40" lean-forward="true" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+          <folding>
+            <element signature="e#8#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

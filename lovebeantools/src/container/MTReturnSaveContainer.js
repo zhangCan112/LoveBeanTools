@@ -7,6 +7,7 @@ import type {Value as MTReturnMoneyItemValue} from '../component/MTReturnMoneyIt
 import type {Dispatch} from '../actions/types';
 import {setDeducPointAmount, computeDeductPointSaveAmount, addDeducPointAmount, deleteDeducPointAmount, setRuleDeducePoint} from '../actions';
 import type {State as DeductPointAmountMap } from '../reducer/deductPointAmount';
+import type {SubState as DeductPointAmountItem } from '../reducer/deductPointAmount';
 import type {State as DeductPointSaveAmountMap} from '../reducer/deductPointSaveAmount';
 import validateDecorator from '../higherOrderComponent/ValidateDecorator';
 
@@ -20,10 +21,13 @@ type Props = {
 class MTReturnSaveContainer extends Component {
     props: Props;
 
+    validateStatus: boolean = false;
+
     componentDidMount(): void {
         this.add();
     }
     render() {
+        this.validateStatus = true;
         const keys: number[] = this.props.deductPointSaveAmount.keys;
         const formItems: Element<any>[] = keys.map((key, index) => {
             return (
@@ -31,7 +35,29 @@ class MTReturnSaveContainer extends Component {
                     {index === 0 ? (
                         <h3>打款明细</h3>
                     ) : null}
-                    {validateDecorator()(<span>
+
+                    {validateDecorator(this.props.deductPointAmount[key], (props: DeductPointAmountItem) => {
+                        if (!props) {
+                            this.validateStatus = false;
+                            return (<span style={{color: 'red'}}>请输入打款明细或删除该明细！</span>)
+                        } else if (!props.actualAmount) {
+                            this.validateStatus = false;
+                            return (<span style={{color: 'red'}}>请输入打款金额或删除该明细！</span>)
+                        } else if (isNaN(props.actualAmount)) {
+                            this.validateStatus = false;
+                            return (<span style={{color: 'red'}}>请输入有效的打款金额或删除该明细！</span>)
+                        } else  if (!props.deductPoint){
+                            this.validateStatus = false;
+                            return (<span style={{color: 'red'}}>请输入折扣点或删除该明细！</span>)
+                        } else if (isNaN(props.deductPoint)) {
+                            this.validateStatus = false;
+                            return (<span style={{color: 'red'}}>请输入有效的折扣点或删除该明细！</span>)
+                        }else  if ( Number(props.actualAmount) > 9999) {
+                            return (<span style={{color: 'gray'}}>打款金额约{(Number(props.actualAmount)/10000).toFixed(2)}万</span>)
+                        } else {
+                            return null;
+                        }
+                    })(<span>
                         <MTReturnMoneyItem value={this.props.deductPointAmount[key]} onChange={(value) => {
                             this.props.dispatch(setDeducPointAmount(key,value.deductPoint,value.actualAmount));
                         }}/>
@@ -48,6 +74,7 @@ class MTReturnSaveContainer extends Component {
             );
         });
 
+        this
         return (
             <div>
                 <p>
@@ -55,7 +82,7 @@ class MTReturnSaveContainer extends Component {
                     <input value={this.props.deductPointSaveAmount.ruleDeducePoint} placeholder="正常扣点额度" onChange={(e) => {this.setRuleDeducePoint(e.target.value)}}/>
                     <span>%</span>
                     <span style={{fontSize: 20, marginLeft: 50}}>节省金额:</span>
-                    <input readOnly={true} value={this.props.deductPointSaveAmount.saveAmount}/>
+                    <input readOnly={true} value={this.props.deductPointSaveAmount.saveAmount} style={(this.props.deductPointSaveAmount.saveAmount && this.props.deductPointSaveAmount.saveAmount > 0) ? {color: 'green'}: {color: 'black'}}/>
                     <span>元</span>
                 </p>
                 {formItems}
@@ -71,6 +98,16 @@ class MTReturnSaveContainer extends Component {
     //event
     //提交
     onSubmit = (e: Event): void => {
+        if (Object.keys(this.props.deductPointAmount).count === 0) {
+            alert('请至少输入一条打款明细！');
+            return;
+        } else if (this.validateStatus === false) {
+            alert('请删除无效的打款明细！');
+            return;
+        } else if (!this.props.deductPointSaveAmount.ruleDeducePoint) {
+            alert('请输入正常折扣点数！');
+            return;
+        }
         let items: DeductPointAmountMap = this.props.deductPointAmount;
         this.props.dispatch(computeDeductPointSaveAmount(Object.values(items)));
     };
