@@ -27,6 +27,7 @@ export type DeleteGrowthRateAction = {type: "deleteGrowthRate",  reuseid: string
 export type SetDeductPoint = {type: "setDeductPoint", key: number, deductPoint: ?string}
 export type SetActualAmount = {type: "setActualAmount", key: number, actualAmount: ?string}
 export type SetDeducPointAmount = {type: "setDeducPointAmount", key: number, deductPoint: ?string, actualAmount: ?string}
+export type SetRuleDeducePoint = {type: "setRuleDeducePoint", ruleDeducePoint: ?string}
 export type AddDeducPointAmount = {type: "addDeducPointAmount"}
 export type DeleteDeducPointAmount = {type: "deleteDeducPointAmount", key: number}
 //deductPointSaveAmount
@@ -44,6 +45,7 @@ export type Action =
     | AddDeducPointAmount
     | DeleteDeducPointAmount
     | SetDeducPointAmount
+    | SetRuleDeducePoint
 
 
 

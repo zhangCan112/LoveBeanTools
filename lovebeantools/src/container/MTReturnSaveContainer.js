@@ -5,14 +5,13 @@ import MTReturnMoneyItem from '../component/MTReturnMoneyItem';
 import '../css/MTReturnSaveContainer.css';
 import type {Value as MTReturnMoneyItemValue} from '../component/MTReturnMoneyItem';
 import type {Dispatch} from '../actions/types';
-import {setDeducPointAmount, computeDeductPointSaveAmount, addDeducPointAmount, deleteDeducPointAmount} from '../actions';
+import {setDeducPointAmount, computeDeductPointSaveAmount, addDeducPointAmount, deleteDeducPointAmount, setRuleDeducePoint} from '../actions';
 import type {State as DeductPointAmountMap } from '../reducer/deductPointAmount';
 import type {State as DeductPointSaveAmountMap} from '../reducer/deductPointSaveAmount';
 import validateDecorator from '../higherOrderComponent/ValidateDecorator';
 
 
 type Props = {
-
     deductPointSaveAmount: DeductPointSaveAmountMap,
     deductPointAmount :DeductPointAmountMap,
     dispatch: Dispatch,
@@ -53,15 +52,18 @@ class MTReturnSaveContainer extends Component {
             <div>
                 <p>
                     <span style={{fontSize: 20}}>正常扣点:</span>
-                    <input/>
+                    <input value={this.props.deductPointSaveAmount.ruleDeducePoint} placeholder="正常扣点额度" onChange={(e) => {this.setRuleDeducePoint(e.target.value)}}/>
                     <span>%</span>
+                    <span style={{fontSize: 20, marginLeft: 50}}>节省金额:</span>
+                    <input readOnly={true} value={this.props.deductPointSaveAmount.saveAmount}/>
+                    <span>元</span>
                 </p>
                 {formItems}
                 <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
                     <Icon type="plus" /> 新增一项
                 </Button>
                 <p> {''} </p>
-                <Button type="primary" htmlType="submit" style={{ width: '60%' }}>计算</Button>
+                <Button type="primary" htmlType="submit" style={{ width: '60%'}}  onClick={this.onSubmit}>计算</Button>
             </div>
         );
     }
@@ -69,7 +71,8 @@ class MTReturnSaveContainer extends Component {
     //event
     //提交
     onSubmit = (e: Event): void => {
-
+        let items: DeductPointAmountMap = this.props.deductPointAmount;
+        this.props.dispatch(computeDeductPointSaveAmount(Object.values(items)));
     };
     //添加一个新的
     add = (): void => {
@@ -78,8 +81,13 @@ class MTReturnSaveContainer extends Component {
 
     //删除指定的一条
     remove = (k: number): void => {
-        this.props.dispatch(deleteDeducPointAmount(k))
+        this.props.dispatch(deleteDeducPointAmount(k));
     };
+    //输入正常扣点额度
+    setRuleDeducePoint(text: ?string): void {
+        this.props.dispatch(setRuleDeducePoint(text));
+    }
+
     //明细输入内容的验证规则
     validatorMTReturnMoneyItemValue = (rule: any, value: MTReturnMoneyItemValue, callback: (error: ?string)=>void) => {
         if  (value === undefined) {

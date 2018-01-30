@@ -104,3 +104,11 @@ export function computeDeductPointSaveAmount(details: DeductPointAmountItem[]): 
         details: details,
     }
 }
+
+//修改正常扣点的额度
+export function setRuleDeducePoint(ruleDeducePoint: ?string): Action {
+    return {
+        type: 'setRuleDeducePoint',
+        ruleDeducePoint: ruleDeducePoint,
+    }
+}
