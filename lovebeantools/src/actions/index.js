@@ -98,7 +98,7 @@ export function deleteDeducPointAmount(key: number): Action {
 }
 
 //计算打款折扣的优惠省了多少钱
-export function computeDeductPointSaveAmount(details: DeductPointAmountItem[]): Action {
+export function computeDeductPointSaveAmount(details: any[]): Action {
     return {
         type: "computeDeductPointSaveAmount",
         details: details,
