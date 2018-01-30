@@ -23,9 +23,6 @@ class MTReturnSaveContainer extends Component {
 
     validateStatus: boolean = false;
 
-    componentDidMount(): void {
-        this.add();
-    }
     render() {
         this.validateStatus = true;
         const keys: number[] = this.props.deductPointSaveAmount.keys;

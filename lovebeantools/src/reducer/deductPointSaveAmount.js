@@ -12,7 +12,7 @@ export type State = {
 
 const initialState = {
     curuuid: 0,
-    keys: [],
+    keys: [0],
 };
 
 export default function deductPointSaveAmount(state: State = initialState,action: Action): State {

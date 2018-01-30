@@ -30,13 +30,15 @@ export default class MTReturnMoneyItem extends Component {
                 <Input style={{width: 125}}
                        placeholder={'实际的打款金额'}
                        onChange={e => this.onActualAmountChange(e.target.value)}
-                       onBlur={this.props.onBlur}/>
+                       onBlur={this.props.onBlur}
+                       value={this.props.value && this.props.value.actualAmount}/>
                 <span style={{marginLeft: 5}}>元</span>
                 <span> 实际扣点：</span>
                 <Input style={{width: 90}}
                        placeholder={'扣点额度'}
                        onChange={e => this.onDeductPointChange(e.target.value)}
-                       onBlur={this.props.onBlur}/>
+                       onBlur={this.props.onBlur}
+                       value={this.props.value && this.props.value.deductPoint}/>
                 <span style={{marginLeft: 5}}>%</span>
                 <span style={{marginLeft: 5}}> 原金额：</span>
                 <Input style={{width: 90}}
