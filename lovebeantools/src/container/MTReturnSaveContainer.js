@@ -78,12 +78,12 @@ class MTReturnSaveContainer extends Component {
         return (
             <div>
                 <p>
-                    <span style={{fontSize: 20}}>正常扣点:</span>
+                    <span style={{fontSize: 20, marginRight: 10}}>正常扣点:</span>
                     <input value={this.props.deductPointSaveAmount.ruleDeducePoint} placeholder="正常扣点额度" onChange={(e) => {this.setRuleDeducePoint(e.target.value)}}/>
-                    <span>%</span>
-                    <span style={{fontSize: 20, marginLeft: 50}}>节省金额:</span>
+                    <span style={{marginLeft: 5}}>%</span>
+                    <span style={{fontSize: 20, marginLeft: 50, marginRight: 10}}>节省金额:</span>
                     <input readOnly={true} value={this.props.deductPointSaveAmount.saveAmount} style={(this.props.deductPointSaveAmount.saveAmount && this.props.deductPointSaveAmount.saveAmount > 0) ? {color: 'green'}: {color: 'black'}}/>
-                    <span>元</span>
+                    <span style={{marginLeft: 5}}>元</span>
                 </p>
                 {formItems}
                 <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
