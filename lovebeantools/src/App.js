@@ -48,18 +48,19 @@ class App extends Component {
         let bodyWidth = this.state.w;
         let bodyHeight = (this.state.h ? this.state.h : 300) - 300;
         bodyHeight = bodyHeight>=800 ? bodyHeight : 800;
+        let minHeight = bodyHeight - 160;
     return (
         <Layout className="App">
             <Header className="header">
                 <div src={icon} className="logo"  style={{color:'pink', fontSize: 15}}>豆豆小工具</div>
                 <div style={{color:'white', fontSize: 30}}>{this.headerTitle}</div>
             </Header>
-            <Layout style={{width: {bodyWidth}, height:{bodyHeight}}}>
+            <Layout style={{display: '-webkit-flex', width: {bodyWidth}, height:{bodyHeight}}}>
                 <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
                         mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
+                        defaultSelectedKeys={[]}
+                        defaultOpenKeys={[]}
                         style={{ height: '100%', borderRight: 0 }}
                         onClick={this.clickOptionAction}
                     >
@@ -72,7 +73,7 @@ class App extends Component {
                             <Menu.Item key="LinkRelativeRatio">环比增长</Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub3" title={<span><Icon type="laptop" />返点计算</span>}>
-                            <Menu.Item key="ISaveMoneyFromMT">美团扣点省钱计算</Menu.Item>
+                            <Menu.Item key="ISaveMoneyFromMT">扣点省钱</Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>
@@ -82,7 +83,7 @@ class App extends Component {
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+                    <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: minHeight}}>
                         {this.renderSelelctedToolView(this.props.tool.tooltype)}
                     </Content>
                 </Layout>
