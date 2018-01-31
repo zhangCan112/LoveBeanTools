@@ -1,6 +1,5 @@
 //@flow
 import type {Action, GroupType, ToolType} from './types';
-import type {SubState as DeductPointAmountItem}  from '../reducer/deductPointAmount';
 
 /*
  * 其它的常量

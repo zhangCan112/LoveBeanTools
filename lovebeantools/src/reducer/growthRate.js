@@ -1,6 +1,6 @@
 //@flow
 
-import type {DeleteGrowthRateAction, SetGrowthRateLastValue, SetGrowthRateThisValue, Action, ToolType} from '../actions/types';
+import type {DeleteGrowthRateAction, SetGrowthRateLastValue, SetGrowthRateThisValue, Action} from '../actions/types';
 import {computeGrowthRate} from "../units";
 
 export type subState = {
