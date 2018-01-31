@@ -1,6 +1,6 @@
 //@flow
 import React, { Component, Element } from 'react';
-import { Icon, Button } from 'antd';
+import { Icon, Button, message} from 'antd';
 import MTReturnMoneyItem from '../component/MTReturnMoneyItem';
 import '../css/MTReturnSaveContainer.css';
 import type {Value as MTReturnMoneyItemValue} from '../component/MTReturnMoneyItem';
@@ -96,17 +96,18 @@ class MTReturnSaveContainer extends Component {
     //提交
     onSubmit = (e: Event): void => {
         if (Object.keys(this.props.deductPointAmount).count === 0) {
-            alert('请至少输入一条打款明细！');
+            message.error('请至少输入一条打款明细！');
             return;
         } else if (this.validateStatus === false) {
-            alert('请删除无效的打款明细！');
+            message.error('请删除无效的打款明细！');
             return;
         } else if (!this.props.deductPointSaveAmount.ruleDeducePoint) {
-            alert('请输入正常折扣点数！');
+            message.error('请输入正常折扣点数！');
             return;
         }
         let items: DeductPointAmountMap = this.props.deductPointAmount;
         this.props.dispatch(computeDeductPointSaveAmount(Object.values(items)));
+        message.success('计算完毕！');
     };
     //添加一个新的
     add = (): void => {
