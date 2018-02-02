@@ -9,6 +9,7 @@ import DateAfterToolView from './component/DateAfterToolView';
 import OnYearBasisRatioView from './container/OnYearBasisRatioView';
 import LinkRelativeRatioView from './container/LinkRelativeRatioView';
 import MTReturnSaveContainer from './container/MTReturnSaveContainer';
+import UnitTransformView from './component/UnitTransformView';
 import {selectTool} from "./actions";
 import type {ToolType} from './actions/types';
 import MTReturnMoneyItem from './component/MTReturnMoneyItem';
@@ -67,6 +68,7 @@ class App extends Component {
                         <SubMenu key="sub1" title={<span><Icon type="user" />日期转换</span>}>
                             <Menu.Item key="DateDistance">日期间隔</Menu.Item>
                             <Menu.Item key="CalculateOneDay">推算日期</Menu.Item>
+                            <Menu.Item key="UnitTransformView">单位转换</Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub2" title={<span><Icon type="laptop" />增长率</span>}>
                             <Menu.Item key="OnYearOnYearBasisRatio">同比增长</Menu.Item>
@@ -99,6 +101,8 @@ class App extends Component {
               return (<DateDistanceToolView/>);
           case "CalculateOneDay":
               return (<DateAfterToolView/>);
+          case "UnitTransformView":
+              return (<UnitTransformView/>)
           case "OnYearOnYearBasisRatio":
               return (<OnYearBasisRatioView {...this.props}/>);
           case "LinkRelativeRatio":

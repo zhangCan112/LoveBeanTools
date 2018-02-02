@@ -10,7 +10,7 @@ export type GroupType = "Date" | "Rate" | "Other";
 /*
  * tool 类型
  */
-export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRatio" | "LinkRelativeRatio" | "ISaveMoneyFromMT";
+export type ToolType = "DateDistance" | "CalculateOneDay" | "OnYearOnYearBasisRatio" | "LinkRelativeRatio" | "ISaveMoneyFromMT" | "UnitTransformView";
 
 
 /*
